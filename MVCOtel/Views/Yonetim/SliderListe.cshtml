@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MVCOtel.Models.SliderM>
+@{
+    ViewBag.Title = "Slider Yönet";
+}
+
+<h2>Slider Yönet</h2>
+@*<a href="/Yonetim/SliderEkle/">Yeni slider ekle</a>*@
+@Html.ActionLink("Yeni slider ekle","SliderEkle")
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <p>
+            <span>@item.Sira - @item.ResimYolu</span>
+            <a href="/Yonetim/SliderSil/@item.SliderMID">Sil</a>
+        </p>
+    }
+}

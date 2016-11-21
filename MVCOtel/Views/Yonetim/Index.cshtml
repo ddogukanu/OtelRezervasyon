@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Yönetim";
+}
+
+<section>
+    <div class="container">
+        <h2>Yönetim Paneli</h2>
+        @if (Request.IsAuthenticated)
+        {
+            if (User.IsInRole("Admin"))
+            {//Admin sayfası
+                <a href="/Yonetim/SliderListe">Slider Yönet</a>
+                <a href="/Yonetim/OdaListele">Oda Yönet</a>
+            }
+            else
+            {
+                <h1>Bu alana girme yetkiniz yok.</h1>
+                <a href="/">Anasayfaya dön</a>
+            }
+        }
+        else
+        {
+            @Html.Action("Login", "Account");
+        }
+
+</div></section>
